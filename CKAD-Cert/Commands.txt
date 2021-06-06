@@ -2,3 +2,7 @@ To Run a Pod - kubectl run <name of pod> --image=<name of image?
 To edit a running pod: kubectl edit pod <podname> ( it will edit the pod config and does not result in yaml changes)
 To scale a replicaset- kubectl scale replicaset <replicaset name> --replicas=name
 To get YAML file of a running pod - kubectl get pod -o yaml > name of the yaml file you wish
+To get all components - kubectl get all
+To Create Namespace- kubectl create ns <name of the namespace>
+To switch to a namespace: kubectl config set-context $(kubectl config current-context) --namespace=<name of the namespace>
+To see all pods in all namespaces: kubectl get pods --all-namespaces
