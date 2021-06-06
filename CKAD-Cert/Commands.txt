@@ -1,0 +1,3 @@
+To Run a Pod - kubectl run <name of pod> --image=<name of image?
+To edit a running pod: kubectl edit pod <podname> ( it will edit the pod config and does not result in yaml changes)
+To scale a replicaset- kubectl scale replicaset <replicaset name> --replicas=name
