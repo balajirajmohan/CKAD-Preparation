@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-3rd-pod
+  labels:
+     app: myapp
+     purpose: test
+spec:
+   containers:
+      - name: balaji
+        image: nginx
+      - name: busy
+        image: busybox
+        

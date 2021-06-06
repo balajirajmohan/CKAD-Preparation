@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: balaji-rc
+  labels:
+     type: demo
+     env: dev
+spec:
+  selector:
+    matchLabels:
+      env: dev
+      type: backend
+  replicas: 2    
+  template:
+
+   metadata: 
+     name: balaji-pod
+     labels:
+      env: dev
+      type: backend
+   spec:
+     containers:
+       - name: balaji-container
+         image: httpd
+    

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-frontend
+  labels:
+    why: kode-kloud
+spec:
+  selector:
+    matchLabels:
+        app: app
+        balaji: balaji
+  replicas: 2
+  template:
+    metadata:
+       app: app
+       balaji: balaji
+    spec:
+      containers:
+        - name: balaji
+          image: httpd:2.4-alpine

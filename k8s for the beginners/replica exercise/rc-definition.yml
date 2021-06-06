@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+   name: my-first-rc
+   labels:
+     why: replicademo
+      
+spec:
+  selector:
+    matchLabels:
+      app: my-app
+      purpose: webserver
+  replicas: 3
+  
+  template:
+
+      metadata:
+        name: my-pod
+        labels:
+           app: my-app
+           purpose: webserver
+
+      spec:
+       containers:
+          - name: my-first-container
+            image: nginx
+       
+      
+    

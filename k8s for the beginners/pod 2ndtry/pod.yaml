@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+   name: balaji-pod
+   labels:
+      env: dev
+      type: backend
+spec:
+  containers:
+    - name: balaji-container
+      image: httpd

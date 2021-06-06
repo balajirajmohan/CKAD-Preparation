@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: my-first-dep
+   labels:
+      why: test
+      purpose: webserver
+spec:
+  selector:
+    matchLabels:
+      env: dev
+      type: backend
+  replicas: 3   
+  template:
+
+   metadata: 
+     name: balaji-pod
+     labels:
+      env: dev
+      type: backend
+   spec:
+     containers:
+       - name: balaji-container
+         image: httpd
+
+         
+          
+                 

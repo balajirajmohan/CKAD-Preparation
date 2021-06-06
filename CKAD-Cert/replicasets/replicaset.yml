@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: las-replicaset
+  labels:
+     purpose: las-frontend
+
+spec:
+  selector:
+     matchLabels:
+       app: my-app
+       type: frontend
+  replicas: 3
+  template:
+     metadata:
+       name: balaji-pod
+       labels:
+          app: my-app
+          type: frontend
+     spec:
+        containers:
+          - name: balaji-container
+            image: httpd
+         
+          
