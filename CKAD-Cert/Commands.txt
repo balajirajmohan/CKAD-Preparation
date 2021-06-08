@@ -6,3 +6,8 @@ To get all components - kubectl get all
 To Create Namespace- kubectl create ns <name of the namespace>
 To switch to a namespace: kubectl config set-context $(kubectl config current-context) --namespace=<name of the namespace>
 To see all pods in all namespaces: kubectl get pods --all-namespaces
+To create configmap via CLI - kubectl create configmap <configmap name> --from-literal=<key>=<value>
+To list all configmaps- kubectl get configmaps
+To know how to declare a resource - kubectl explain pods --recursive | grep envFrom -A3
+To create a secret: kubectl create secret generic balaji-secret --from-literal=USERNAME=BALAJI --from-literal=PASSWORD=ABCD@123
+
