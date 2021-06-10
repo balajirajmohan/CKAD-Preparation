@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod 
+metadata:
+  name: balaji-pod
+spec:
+ containers:
+   - name: balaji
+     image: httpd
+     ports:
+       - containerPort: 8080
+     resources:
+        requests:
+          cpu: 1
+          memory: "1Gi"
+        limits:
+          cpu: 2
+          memory: "2Gi"

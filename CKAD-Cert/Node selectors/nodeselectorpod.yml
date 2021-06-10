@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nodeselector-pod
+spec:
+  containers:
+    - name: balaji-pod
+      image: httpd
+  nodeSelector:
+      why: pudikala -----> these are the labels that we used to label our nodes
+  

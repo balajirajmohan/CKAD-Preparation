@@ -10,4 +10,10 @@ To create configmap via CLI - kubectl create configmap <configmap name> --from-l
 To list all configmaps- kubectl get configmaps
 To know how to declare a resource - kubectl explain pods --recursive | grep envFrom -A3
 To create a secret: kubectl create secret generic balaji-secret --from-literal=USERNAME=BALAJI --from-literal=PASSWORD=ABCD@123
-
+To create a service account - kubectl create serviceaccount balaji-serviceaccount
+To Taint a node- kubectl taint node nodename key=value:effect
+                kubectl taint node node01 why=pudikala:NoSchedule
+To Label a node: kubectl label node nodeo1 key:value  
+                 kubectl label node node01 purpose:gpu
+                 
+    
