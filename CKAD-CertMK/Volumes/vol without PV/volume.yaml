@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp
+  labels:
+    name: myapp
+spec:
+  containers:
+  - name: myapp
+    image: httpd
+    volumeDevices:
+      - mountpath: /opt ----->>> path inside the container 
+        name: data-volume 
+  volumes:
+    - name: data-volume
+      hostPath:
+        path: /data ----> folder wehere the volumes you created on the node
+        type: directory
+

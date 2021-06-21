@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: polict-to-restrict-access-to-db
+spec:
+  podSelector:
+    matchLabels:
+       purpose: db-pod -----> which pod the policy is getting applied to or the pod that we want to restrict access to
+  policyTypes:
+  - Ingress:
+  ingress:
+  - from: 
+    - podSelector:
+         matchlabels:
+            purpose: backend-pod -----> the restricted pod can receive connection only from these pods
+      namespaceSelector:
+        matchLables:
+            name: dev ---->>> all pods in this namespace matching the above pod lable can access DB
+    - ipBlock:
+        cidr: 10.10.10.10/32 ----->>> if one the services or server want to access db which is outside your kubernetes cluster, but within the same network
+    ports:
+    - protocol: tcp
+      port: 3306
+
+
+
+     

@@ -1,4 +1,7 @@
 To Run a Pod - kubectl run <name of pod> --image=<name of image?
+To login to a container: kubectl exec -it <containername> -- <command>
+To create resources from a yaml file - kubectl apply -f filename.yaml
+To create resources created from an YAML file -- kubectl delete -f filename.yaml
 To edit a running pod: kubectl edit pod <podname> ( it will edit the pod config and does not result in yaml changes)
 To scale a replicaset- kubectl scale replicaset <replicaset name> --replicas=name
 To get YAML file of a running pod - kubectl get pod -o yaml > name of the yaml file you wish
@@ -15,5 +18,6 @@ To Taint a node- kubectl taint node nodename key=value:effect
                 kubectl taint node node01 why=pudikala:NoSchedule
 To Label a node: kubectl label node nodeo1 key:value  
                  kubectl label node node01 purpose:gpu
+To list all shortnames of objects and their api versions: kubectl api-resources
                  
     
