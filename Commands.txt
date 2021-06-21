@@ -1,4 +1,7 @@
 To Run a Pod - kubectl run <name of pod> --image=<name of image?
+To Run a pod- kubectl run balajibr-pod --image=nginx --restart=never
+Tp run a pod with port- kubectl run balajibr1-pod --image=redis --port=6379 --restart=never
+To output a manifest file without creating resources- kubectl run pod1 --image=httpd --dry-run -o yaml
 To login to a container: kubectl exec -it <containername> -- <command>
 To create resources from a yaml file - kubectl apply -f filename.yaml
 To create resources created from an YAML file -- kubectl delete -f filename.yaml
