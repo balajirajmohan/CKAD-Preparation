@@ -1,26 +1,53 @@
-To Run a Pod - kubectl run <name of pod> --image=<name of image?
+To Run a Pod - kubectl run <name of pod> --image=<name of image>
+
 To Run a pod- kubectl run balajibr-pod --image=nginx --restart=never
+
 Tp run a pod with port- kubectl run balajibr1-pod --image=redis --port=6379 --restart=never
+
+To get pods or filter pods with specific label--> kubectl get pods -l key=value
+
+To Assign labels to a runnig pod---? kubectl label pods <pod-name? key=value
+
+To get labels associated along with list of all pods -->> kubectl get pods --show-labels
+
 To output a manifest file without creating resources- kubectl run pod1 --image=httpd --dry-run -o yaml
+
 To login to a container: kubectl exec -it <containername> -- <command>
+
 To create resources from a yaml file - kubectl apply -f filename.yaml
+
 To create resources created from an YAML file -- kubectl delete -f filename.yaml
+
 To edit a running pod: kubectl edit pod <podname> ( it will edit the pod config and does not result in yaml changes)
+
 To scale a replicaset- kubectl scale replicaset <replicaset name> --replicas=name
+
 To get YAML file of a running pod - kubectl get pod -o yaml > name of the yaml file you wish
+
 To get all components - kubectl get all
+
 To Create Namespace- kubectl create ns <name of the namespace>
+
 To switch to a namespace: kubectl config set-context $(kubectl config current-context) --namespace=<name of the namespace>
+
 To see all pods in all namespaces: kubectl get pods --all-namespaces
+
 To create configmap via CLI - kubectl create configmap <configmap name> --from-literal=<key>=<value>
+
 To list all configmaps- kubectl get configmaps
+
 To know how to declare a resource - kubectl explain pods --recursive | grep envFrom -A3
+
 To create a secret: kubectl create secret generic balaji-secret --from-literal=USERNAME=BALAJI --from-literal=PASSWORD=ABCD@123
+
 To create a service account - kubectl create serviceaccount balaji-serviceaccount
+
 To Taint a node- kubectl taint node nodename key=value:effect
                 kubectl taint node node01 why=pudikala:NoSchedule
+
 To Label a node: kubectl label node nodeo1 key:value  
                  kubectl label node node01 purpose:gpu
+
 To list all shortnames of objects and their api versions: kubectl api-resources
                  
     
