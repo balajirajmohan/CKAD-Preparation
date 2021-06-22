@@ -1,28 +1,43 @@
+Pod Actions:
+
 To Run a Pod - kubectl run <name of pod> --image=<name of image>
-
 To Run a pod- kubectl run balajibr-pod --image=nginx --restart=never
+To run a pod with port- kubectl run balajibr1-pod --image=redis --port=6379 --restart=never
+To edit a running pod: kubectl edit pod <podname> ( it will edit the pod config and does not result in yaml changes)
+To get YAML file of a running pod - kubectl get pod -o yaml > name of the yaml file you wish
 
-Tp run a pod with port- kubectl run balajibr1-pod --image=redis --port=6379 --restart=never
+Labels:
 
 To get pods or filter pods with specific label--> kubectl get pods -l key=value
-
 To Assign labels to a runnig pod---? kubectl label pods <pod-name? key=value
-
 To get labels associated along with list of all pods -->> kubectl get pods --show-labels
+
+Manifest without Executing:
 
 To output a manifest file without creating resources- kubectl run pod1 --image=httpd --dry-run -o yaml
 
+Login to a container:
+
 To login to a container: kubectl exec -it <containername> -- <command>
 
-To create resources from a yaml file - kubectl apply -f filename.yaml
+Create and Delete from Yaml:
 
+To create resources from a yaml file - kubectl apply -f filename.yaml
 To create resources created from an YAML file -- kubectl delete -f filename.yaml
 
-To edit a running pod: kubectl edit pod <podname> ( it will edit the pod config and does not result in yaml changes)
+Replicasets:
 
 To scale a replicaset- kubectl scale replicaset <replicaset name> --replicas=name
 
-To get YAML file of a running pod - kubectl get pod -o yaml > name of the yaml file you wish
+Deployments:
+
+To check the rollout History or versions of our deployment: kubectl roullout history deployment.v1.apps/<deployment-name>
+To check what has changed in a particular revision: kubectl roullout history deployment.v1.apps/<deployment-name> --revision n where "n" stands for revison number
+To do a rollback from current verison of your dep to the previou version: kubectl rollout undo deployment.v1.apps/<deployment-name>
+To do a rollback from current version to a particular previous version: kubectl rollout undo deployment.v1.apps/<deployment-name> --to-revision=n
+To Create a deployment via CLI - kubectl create deployment <name> --image=<name> --replicas=n
+To update an image in a deployment --> kubectl set image deployment/deploymentname containername=< new image name > --record
+
 
 To get all components - kubectl get all
 
