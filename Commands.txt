@@ -31,6 +31,8 @@ To scale a replicaset- kubectl scale replicaset <replicaset name> --replicas=nam
 
 Deployments:
 
+To Create a deployment via CLI- kubectl create deployment <name> --image=<image-name> --replicas=n
+To get deployment file of an deployment before it gets created - kubectl create deployment <name> --image=<image=name> --dry-run=client -o yaml>balaji.yaml
 To check the rollout History or versions of our deployment: kubectl roullout history deployment.v1.apps/<deployment-name>
 To check what has changed in a particular revision: kubectl roullout history deployment.v1.apps/<deployment-name> --revision n where "n" stands for revison number
 To do a rollback from current verison of your dep to the previou version: kubectl rollout undo deployment.v1.apps/<deployment-name>
