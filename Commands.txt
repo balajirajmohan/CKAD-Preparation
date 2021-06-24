@@ -46,6 +46,12 @@ Default Service type is - ClusterIp
 NodePort range -- >> 30000 - 32767
 To expose a pod as NodePort service -->> kubectl expose pod <pod-name> --port=<port number that service is running inside> --target-port=<port that pod 
 is running> --type=NodePort
+TO Create a service and expose a Pod - kubectl expose pod <podname> --name <servicename> --port=80 --target-port=80
+
+Namespace:
+To list all namespaces --->>> kubectl get namespace
+To list a object in a specific namespace: kubectl get object --namespace <name of the namespace>
+
 
 
 To get all components - kubectl get all
