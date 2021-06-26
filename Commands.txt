@@ -61,6 +61,9 @@ We can create generic secret from three ways.
 To Create a Secret --->> kubectl create secret [TYPE][NAME]=KEY=Value
                          kubectl create secret generic balaji --from-literal=username=password
 
+By default, all secrets you created, they have key-value pair. If you describe them or redirect them into Yaml, you would be able to see the key. but not the value.
+Because, values are encoded with base64 and its a mandatory requirement in kubernetes.
+
 Namespace:
 To list all namespaces --->>> kubectl get namespace
 To list a object in a specific namespace: kubectl get object --namespace <name of the namespace>
