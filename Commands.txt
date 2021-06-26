@@ -48,6 +48,19 @@ To expose a pod as NodePort service -->> kubectl expose pod <pod-name> --port=<p
 is running> --type=NodePort
 TO Create a service and expose a Pod - kubectl expose pod <podname> --name <servicename> --port=80 --target-port=80
 
+Secrets:
+
+There are 3 types of Secrets in K8s: 1. Generic 2. TLS 3. Docker Registry
+
+About Generic Secret: Generic secret is the one where we leverage in most of our Application Source codes to store confidential usernames and passwords/Key-Value Pairs.
+We can create generic secret from three ways.
+1. From a file
+2. Literal on CLI
+3. From a Directory 
+
+To Create a Secret --->> kubectl create secret [TYPE][NAME]=KEY=Value
+                         kubectl create secret generic balaji --from-literal=username=password
+
 Namespace:
 To list all namespaces --->>> kubectl get namespace
 To list a object in a specific namespace: kubectl get object --namespace <name of the namespace>
@@ -79,5 +92,7 @@ To Label a node: kubectl label node nodeo1 key:value
                  kubectl label node node01 purpose:gpu
 
 To list all shortnames of objects and their api versions: kubectl api-resources
+
+fR8hT2}s
                  
     
