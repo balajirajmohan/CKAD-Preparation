@@ -68,6 +68,10 @@ Namespace:
 To list all namespaces --->>> kubectl get namespace
 To list a object in a specific namespace: kubectl get object --namespace <name of the namespace>
 
+Multi-container pods:
+
+To login to a particular container in a multi-container pod setup -->> kubectl exec -it <podname> -c <container-name> <command>
+
 
 
 To get all components - kubectl get all
