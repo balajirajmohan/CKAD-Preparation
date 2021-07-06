@@ -7,12 +7,17 @@ To edit a running pod: kubectl edit pod <podname> ( it will edit the pod config 
 To get YAML file of a running pod - kubectl get pod -o yaml > name of the yaml file you wish
 To expose a Pod that is running on specific port - kubectl expose pod --port <port numbet to expose> --target-port <port the pod is actually running>
 To get pods on which nodes - kubectl get pods -o wide
+To get only limited yaml file: kubectl run --generator-run-<object>/apiversion <name of the object> --dry-run=client -o yaml
+To delete a pod immediately - kubectl delete po nginx --grace-period=0 --force
+To delete any resource immediately- kubectl delete <objec>  <object-name> --grace-period=0 --force
+To sort pods by creation time: kubectl get pods--sort-by=.metadata.creationTimestamp
 
 Labels:
 
 To get pods or filter pods with specific label--> kubectl get pods -l key=value or kubectl get pods --selector key=value
 To Assign labels to a runnig pod---? kubectl label pods <pod-name? key=value
 To get labels associated along with list of all pods -->> kubectl get pods --show-labels
+To list Pods based on two labels with same key -->> kubectl get pods -l 'env in (dev,prod)'
 
 Manifest without Executing:
 
@@ -42,6 +47,7 @@ To do a rollback from current verison of your dep to the previou version: kubect
 To do a rollback from current version to a particular previous version: kubectl rollout undo deployment.v1.apps/<deployment-name> --to-revision=n
 To Create a deployment via CLI - kubectl create deployment <name> --image=<name> --replicas=n
 To update an image in a deployment --> kubectl set image deployment/deploymentname containername=< new image name > --record
+To Autoscale a deployment based on CPU -->> kubectl autoscale deployment <name of deployment> --min=n --max=n --cpu-percent=n%
 
 Services:
 Default Service type is - ClusterIp
@@ -49,6 +55,7 @@ NodePort range -- >> 30000 - 32767
 To expose a pod as NodePort service -->> kubectl expose pod <pod-name> --port=<port number that service is running inside> --target-port=<port that pod 
 is running> --type=NodePort
 TO Create a service and expose a Pod - kubectl expose pod <podname> --name <servicename> --port=80 --target-port=80
+To ping a service ip from a pod : nc -z -w -v l <service name> <port that service is running>
 
 Secrets:
 
@@ -70,7 +77,7 @@ Namespace:
 To list all namespaces --->>> kubectl get namespace
 To list a object in a specific namespace: kubectl get object --namespace <name of the namespace>
 To connect to a service from one namespace to another service in another namespace: <service.name>.<ns.name>.svc.cluster.local
-To switch to a namespace: kubectl config set-context $(kubectl config current-context) --namespace=<name of the namespace>
+To switch to a namespac
 
 Multi-container pods:
 
@@ -116,17 +123,7 @@ To View the log of a particular container in a pod- kubectl logs -f <podname> <c
 
 
 
-To switch to a namespace: kubectl config set-context $(kubectl config current-context) --namespace=<name of the namespace>
-
-To see all pods in all namespaces: kubectl get pods --all-namespaces
-
-To create configmap via CLI - kubectl create configmap <configmap name> --from-literal=<key>=<value>
-
-To list all configmaps- kubectl get configmaps
-
-To know how to declare a resource - kubectl explain pods --recursive | grep envFrom -A3
 
 
 
-To list all shortnames of objects and their api versions: kubectl api-resources
 
