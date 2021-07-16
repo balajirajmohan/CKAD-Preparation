@@ -27,6 +27,9 @@ Login to a container:
 
 To login to a container: kubectl exec -it <containername> -- <command>
 
+Create Quota:
+kubectl create quota <name of the quota> --hard=cpu=1,memory=1G,pods=2
+
 Create and Delete from Yaml:
 
 To create resources from a yaml file - kubectl apply -f filename.yaml
@@ -77,7 +80,7 @@ Namespace:
 To list all namespaces --->>> kubectl get namespace
 To list a object in a specific namespace: kubectl get object --namespace <name of the namespace>
 To connect to a service from one namespace to another service in another namespace: <service.name>.<ns.name>.svc.cluster.local
-To switch to a namespac
+
 
 Multi-container pods:
 

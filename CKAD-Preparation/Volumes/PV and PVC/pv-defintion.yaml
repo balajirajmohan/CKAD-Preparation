@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+   name: name-of-the-pv ----> name of the PV 
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+      storage: 1Gi --- Size of the PV 
+  hostPath:
+      path: /tmp/create ---->> Here we have used storgae on node, not any NFS, EBS GlusterFS.
